@@ -1,6 +1,6 @@
 tool
 extends Curve2D
-class_name CatmullRom2D
+class_name CatmullRom2D, "res://icons/Curve2D.svg"
 
 export (float,0,2) var torsion=0.5 setget set_torsion
 
@@ -17,6 +17,10 @@ func update_control_points():
 	var k=torsion/3
 	
 	var pc=get_point_count()
+	
+	if(pc<=1):
+		return
+	
 	for i in range(0,pc-1):
 		set_point_out(i,k*(get_point_position((i+1)%pc)-get_point_position(fposmod(i-1, pc))))
 		set_point_in((i+1)%pc,-k*(get_point_position((i+2)%pc)-get_point_position(i%pc)))
