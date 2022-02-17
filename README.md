@@ -1,15 +1,13 @@
 # Catmull-Rom splines for Godot
 
-There are two implementations. 
-## As a resource.
-![camullpath](https://user-images.githubusercontent.com/93406322/154357949-1afd05b6-b271-4af0-9608-15ab6f345395.gif)
-## As an object.
-### Variables
-- PoolVector2Array **points**: spline control points.
-- int **segment_size**: number of points in each segment.
-- float **torsion**: controls the spline shape.
-- bool **closed**: closes the curve.
-### Methods
-- PoolVector2Array **get_baked_segment(p_index:int)**: returns all the calculated points of the segment p_index as a PoolVector2Array.
-- PoolVector2Array **get_baked_points()**: returns all the calculated points of curve as a PoolVector2Array.
-- Curve2D **to_curve2D()**: converts Catmull-Rom spline to Curve2D (Bezier curve).
+![camullpathupdate](https://user-images.githubusercontent.com/93406322/154548831-edeb36e1-9a55-435a-9b67-e71ddb448dd1.gif)
+
+Custom resource for Catmull-Rom splines in 2D and 3D for Godot. They are like Bezier curves but the control points are calculated from the curve points. They are less flexible but allow to get a smooth curve faster.
+
+## Variables
+- float **torsion**: controls the curve shape.
+
+## Methods
+- void **update_control_points()**: converts Catmull-Rom spline into Curve2D/Curve3D (Bezier) calculating the controls points. This method is called automatically when a point on the curve is added, deleted or changed.
+
+
