@@ -1,6 +1,6 @@
 tool
 extends Curve3D
-class_name CatmullRom3D, "res://icons/Curve2D.svg"
+class_name CatmullRom3D
 
 export (float,0,2) var torsion=0.5 setget set_torsion
 
